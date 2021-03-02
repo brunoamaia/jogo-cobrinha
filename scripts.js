@@ -69,6 +69,26 @@ function startGame() {
   snake.unshift(newHead)
 }
 
+function resetGame() {
+  clearInterval(game)
+
+  direction = "right"
+  food.x = Math.floor(Math.random()*15+1) * box
+  food.y = Math.floor(Math.random()*15+1) * box
+
+
+  if (snake.length > 1) {
+    let n = snake.length
+    for (let i = 1; i<n ;i++) {
+      snake.pop()
+    }
+  }
+  snake[0].x = 8*box
+  snake[0].y = 8*box
+
+  game = setInterval(startGame, 100)
+}
+
 document.addEventListener('keydown', updateDirection)
 function updateDirection(event) {
   if (snake[0].x<=15*box && snake[0].x>=0 && snake[0].y<=15*box && snake[0].y>=0) {
