@@ -95,9 +95,15 @@
           <span>Dificuldade:</span>
           
           <div class="level">
-            <button type="button">01</button>
-            <button type="button" class="activated">02</button>
-            <button type="button">03</button>
+            <button type="button" class="btn1" onclick="handleChangeLevel(1)">
+              01
+            </button>
+            <button type="button" class="btn2 activated" onclick="handleChangeLevel(2)">
+              02
+            </button>
+            <button type="button"class="btn3" onclick="handleChangeLevel(3)">
+              03
+            </button>
           </div>
           
           <button type="button" class="reset" onclick="resetGame()">Reiniciar</button>

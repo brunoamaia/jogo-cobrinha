@@ -86,7 +86,28 @@ function resetGame() {
   snake[0].x = 8*box
   snake[0].y = 8*box
 
-  game = setInterval(startGame, 100)
+  game = setInterval(startGame, timelevel)
+}
+
+function handleChangeLevel(level) {
+  clearInterval(game)
+
+  window.document.querySelector(".btn1").className = 'btn1'
+  window.document.querySelector(".btn2").className = 'btn2'
+  window.document.querySelector(".btn3").className = 'btn3'
+
+  if (level === 1) {
+    window.document.querySelector(".btn1").className += ' activated'
+    timelevel = 200
+  } else if (level === 2) {
+    window.document.querySelector(".btn2").className += ' activated'
+    timelevel = 100
+  } else {
+    window.document.querySelector(".btn3").className += ' activated'
+    timelevel = 60
+  }
+
+  resetGame()
 }
 
 document.addEventListener('keydown', updateDirection)
@@ -99,9 +120,8 @@ function updateDirection(event) {
   }
 }
 
-
-let game = setInterval(startGame, 100)
-
+let timelevel = 100
+let game = setInterval(startGame, timelevel)
 
 // remove default functions of keys (navigation - vertical and horizontal)
 document.addEventListener("keydown", function (e) {
