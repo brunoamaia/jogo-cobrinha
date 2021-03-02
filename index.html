@@ -28,6 +28,9 @@
   <meta property="twitter:description" content="Jogo criado com canvas e JavaScript Vanilla">
   <meta property="twitter:image" content="https://raw.githubusercontent.com/brunoamaia/brunoamaia.github.io/master/src/meta-img/home.jpg">
 
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Iceland&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="../global.css">
   <link rel="stylesheet" href="style.css">
 
@@ -79,12 +82,40 @@
   <section>
     <div class="section_a">
       <h1>Jogo da cobrinha</h1>
-    
-      <canvas id="snake" width="512" height="512" ></canvas>
+      
+      <div class="game-render">
+
+        <div class="score">
+          <span> 000 pts</span>
+        </div>
+
+        <canvas id="snake" width="512" height="512" ></canvas>
+
+        <div class="control">
+          <span>Dificuldade:</span>
+          
+          <div class="level">
+            <button type="button">01</button>
+            <button type="button" class="activated">02</button>
+            <button type="button">03</button>
+          </div>
+          
+          <button type="button" class="reset">Reiniciar</button>
+        </div>
+      </div>
     </div>
 
     <div class="section_b">
-      <h3>Informações</h3>
+      <h1>Informações</h1>
+      
+      <p>
+        Jogo desenvolvido no curso de "HTML Web Developer" da <a href="https://digitalinnovation.one/sign-up?ref=67YTNH6X5C">Digital Inovation One (DIO)</a>.
+      </p>
+      <p>
+        O jogo foi desenvolvido utilizando canvas e JavaScript Vanilla. 
+        Ele esta configurado para funcionar em comutadorr, devito ao fato de utilizar teclas para mudar a direção da "cobra".
+        Posteriormente será implementada uma solução para dispositivos mobile.
+      </p>
     </div>
 
   </section>
