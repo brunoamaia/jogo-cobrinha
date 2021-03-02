@@ -19,6 +19,14 @@ function createSnake() {
   }
 }
 
+let food = {
+  x: Math.floor(Math.random()*15+1) * box,
+  y: Math.floor(Math.random()*15+1) * box
+}
+function drawFood() {
+  context.fillStyle = "red"
+  context.fillRect(food.x, food.y, box, box)
+}
 
 let direction = "right"
 function startGame() {
@@ -30,6 +38,8 @@ function startGame() {
 
   criarBG()
   createSnake()
+  drawFood()
+  
   let snakeX = snake[0].x
   let snakeY = snake[0].y
 
@@ -43,7 +53,6 @@ function startGame() {
     x: snakeX,
     y: snakeY
   }
-
   snake.unshift(newHead)
 }
 
