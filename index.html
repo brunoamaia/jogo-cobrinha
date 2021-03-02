@@ -7,7 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Language" content="pt-br">
 
-  <meta name="description" content="">
+  <link rel = "icon" type = "image/png" href="https://raw.githubusercontent.com/brunoamaia/brunoamaia.github.io/master/src/tillteBar.png"  sizes="16x16"/>
+  <link rel = "apple-touch-icon" type = "image/png" href = "https://raw.githubusercontent.com/brunoamaia/brunoamaia.github.io/master/src/tillteBar.png"/>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Jogo da cobrinha">
+  <meta name="description" content="Jogo criado com canvas e JavaScript Vanilla">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brunoamaia.github.io/jogo-cobrinha/">
+  <meta property="og:title" content="Jogo da cobrinha">
+  <meta property="og:description" content="Jogo criado com canvas e JavaScript Vanilla">
+  <meta property="og:image" content="https://raw.githubusercontent.com/brunoamaia/brunoamaia.github.io/master/src/meta-img/home.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://brunoamaia.github.io/jogo-cobrinha/">
+  <meta property="twitter:title" content="Jogo da cobrinha">
+  <meta property="twitter:description" content="Jogo criado com canvas e JavaScript Vanilla">
+  <meta property="twitter:image" content="https://raw.githubusercontent.com/brunoamaia/brunoamaia.github.io/master/src/meta-img/home.jpg">
 
   <link rel="stylesheet" href="../global.css">
   <link rel="stylesheet" href="style.css">
@@ -16,9 +35,63 @@
 </head>
 
 <body>
-  <h1>Jogo da cobrinha</h1>
+  <header class="header">
+    <div class="content">
+      <div class="logo">
+        <a href="../"><img src="../src/icons/home.svg" alt="Voltar para a página inicial"> </a>
+      </div>
+  
+      <a href="" class="nav-toggle" onclick="openmenu()">
+        <img src="../src/icons/menu.svg" alt="">
+      </a>
+  
+      <nav class="nav" id="nav">
+        <p>
+          <span class="nav-close" onclick="closenmenu()">
+            <i class="fas fa-bars"><img src="../src/icons/x.svg" alt=""></i>
+          </span>
+        </p>
+        <ul>
+          <li> <a href="../" > Home </a> </li>
+          <li> <a href="../pages/aboutme">Autor</a> </li>
+          <li> <a href="../pages/projects" class="current">Projetos</a> </li>
+          <li> <a href="../pages/reposit"> Repositório </a> </li>
+        </ul>
+      </nav>
+  
+      <nav class="social" id="social">
+        <ul>
+          <li> 
+            <a href="https://www.linkedin.com/in/brunoamaia94/"> 
+              <img src="../src/icons/linkedin.svg" alt=""> 
+            </a>
+          </li>
+          <li> 
+            <a href="https://www.facebook.com/brunoamaia94">
+              <img src="../src/icons/facebook.svg" alt=""> 
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <canvas id="snake" width="512" height="512" ></canvas>
+  <section>
+    <div class="section_a">
+      <h1>Jogo da cobrinha</h1>
+    
+      <canvas id="snake" width="512" height="512" ></canvas>
+    </div>
+
+    <div class="section_b">
+      <h3>Informações</h3>
+    </div>
+
+  </section>
+
+  <footer>
+    Criado em março de 2021 <br>
+  </footer>
 
   <script src="scripts.js" async defer></script>
 </body>
