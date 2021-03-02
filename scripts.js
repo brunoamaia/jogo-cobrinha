@@ -1,3 +1,24 @@
+let scoreDisplay = document.querySelector('.score')
+let sccoreLevel = 10
+let score = 0
+
+function updateScore() {
+  let adjustScore = ''
+
+  if (score < 10) {
+    adjustScore = '00' + score
+  } else if (score < 100) {
+    adjustScore = '0' + score
+  } else {
+    adjustScore = score
+  }
+
+  scoreDisplay.innerHTML = `
+    <span> ${adjustScore} pts</span>
+  `
+}
+
+
 let canvas = document.getElementById("snake")
 let context = canvas.getContext("2d")
 let box = 32
@@ -58,6 +79,8 @@ function startGame() {
   if (snakeX === food.x && snakeY === food.y) {
     food.x = Math.floor(Math.random()*15+1) * box
     food.y = Math.floor(Math.random()*15+1) * box
+    score += sccoreLevel
+    updateScore()
   } else {
     snake.pop()
   }
@@ -72,6 +95,9 @@ function startGame() {
 function resetGame() {
   clearInterval(game)
 
+  score = 0
+  updateScore()
+  
   direction = "right"
   food.x = Math.floor(Math.random()*15+1) * box
   food.y = Math.floor(Math.random()*15+1) * box
@@ -99,12 +125,15 @@ function handleChangeLevel(level) {
   if (level === 1) {
     window.document.querySelector(".btn1").className += ' activated'
     timelevel = 200
+    sccoreLevel = 5
   } else if (level === 2) {
     window.document.querySelector(".btn2").className += ' activated'
     timelevel = 100
+    sccoreLevel = 10
   } else {
     window.document.querySelector(".btn3").className += ' activated'
     timelevel = 60
+    sccoreLevel = 15
   }
 
   resetGame()
