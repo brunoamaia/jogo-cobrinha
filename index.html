@@ -33,6 +33,7 @@
 
   <link rel="stylesheet" href="../global.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="modal.css">
 
   <title>Jogo da cobrinha</title>
 </head>
@@ -145,6 +146,28 @@
       </p>
     </div>
 
+  </section>
+
+  <section>
+    <div class="container-modal">
+      <div class="content-modal">
+        <h1>Jogo encerrado</h1>
+        <div class="score-modal">
+          <div>
+            <div>Pontuação: &nbsp;</div>
+            <div class="value"> 100pts </div>
+          </div>
+          <div>
+            <div>Seu recorde: &nbsp;</div>
+            <div class="value"> 100pts</div>
+          </div>
+        </div>
+        <div class="score-options">
+          <button onclick="endGame(0)" >Ver</button>
+          <button onclick="endGame(1)" >Reiniciar</button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>

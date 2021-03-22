@@ -86,7 +86,7 @@ function startGame() {
   for (i=1; i<snake.length; i++) {
     if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
       clearInterval(game)
-      alert('Game Over')
+      endGame()
     }
   }
 
@@ -177,6 +177,52 @@ function updateDirection(event) {
 
 let timelevel = 100
 let game = setInterval(startGame, timelevel)
+
+const memmo = {
+  record: 0,
+  success: 0,
+}
+
+let popup = false;
+function endGame(reset=0) {
+  popup = !popup
+
+  if (popup) {
+    window.document.querySelector('.container-modal').classList.add('end-game')
+    window.document.querySelector('body').classList.add('end-game')
+
+    let congratulations = ''
+    if (score > memmo.record) {
+      memmo.record = score
+      memmo.success += 1
+      congratulations = '<div> Novo Record!!! </div>'
+    }
+
+    window.document.querySelector('.score-modal').innerHTML = `
+      ${congratulations}
+      <div>
+        <div>Pontuação: &nbsp;</div>
+        <div class="value"> ${score}pts </div>
+      </div>
+      <div>
+        <div>Seu recorde: &nbsp;</div>
+        <div class="value"> ${memmo.record}ts</div>
+      </div>
+
+    `
+
+
+    
+  } else {
+    window.document.querySelector('.container-modal').classList.remove('end-game')
+    window.document.querySelector('body').classList.remove('end-game')
+    
+    if (reset === 1) {
+      resetGame()
+    }
+  }
+
+}
 
 // remove default functions of keys (navigation - vertical and horizontal)
 document.addEventListener("keydown", function (e) {

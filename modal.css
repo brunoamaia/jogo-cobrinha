@@ -1,0 +1,81 @@
+.container-modal {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+}
+
+.end-game {
+  top: 0;
+
+  overflow-y: hidden;
+  overflow: hidden;
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+.end-game::-webkit-scrollbar {
+  display: none;
+}
+
+.content-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  background-color: #023e8a;
+  height: 40%;
+  width: 40%;
+  min-height: 350px;
+  min-width: 300px;
+  padding: 0;
+  margin: 0;
+
+  border: 2px solid #022a5f;
+  border-radius: 10px;
+}
+
+.score-modal {
+  width: 100%;
+  border: 2px solid #022a5f;
+  border-left: none;
+  border-right: none;
+}
+
+.score-modal div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 1.5rem;
+}
+
+.score-modal > div {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.content-modal h1 {
+  font-size: 2rem;
+}
+
+.score-modal .value {
+  font-family: 'Iceland', cursive;
+  font-size: 1.5rem;
+}
+
+.score-options {
+  padding: 0;
+  margin: 0;
+}
+
+.content-modal button {
+  padding: 0 20px;
+}
