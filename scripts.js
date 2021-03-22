@@ -51,6 +51,30 @@ function drawFood() {
   context.fillRect(food.x, food.y, widthBox, heightBox)
 }
 
+function createNewFood() {
+  let x = Math.floor(Math.random()*15+1) * widthBox
+  let y = Math.floor(Math.random()*15+1) * heightBox
+
+  let colision = false
+
+  console.log(`Comrpimento = ${snake.length}`)
+  for (let i = 0; i < snake.length; i++) {
+    if( (x === snake[i].x && y === snake[i].y) 
+    || (x === food.x && y === food.y)) {
+      console.log('duplicado')
+      colision = true
+    }
+  }
+  
+  if (colision) {
+    createNewFood()
+  } else {
+    food.x = x 
+    food.y = y
+  }
+
+}
+
 let direction = "right"
 function startGame() {
 
@@ -79,8 +103,8 @@ function startGame() {
   if (direction == 'down') {snakeY += heightBox}
   
   if (snakeX === food.x && snakeY === food.y) {
-    food.x = Math.floor(Math.random()*15+1) * widthBox
-    food.y = Math.floor(Math.random()*15+1) * heightBox
+    createNewFood()
+
     score += sccoreLevel
     updateScore()
   } else {
