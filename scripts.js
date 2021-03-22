@@ -22,40 +22,42 @@ function updateScore() {
 let canvas = document.getElementById("snake")
 let context = canvas.getContext("2d")
 let box = 32
+const heightBox = 32
+const widthBox = 32
 
 function criarBG() {
   context.fillStyle = "#00804D"
-  context.fillRect(0, 0, 16*box, 16*box)
+  context.fillRect(0, 0, 16*widthBox, 16*heightBox)
 }
 
 let snake = []
 snake[0] = {
-  x: 8*box,
-  y: 8*box
+  x: 8*widthBox,
+  y: 8*heightBox
 }
 function createSnake() {
   for(i=0; i<snake.length; i++) {
     context.fillStyle ="#00CC7A"
-    context.fillRect(snake[i].x,snake[i].y, box, box)
+    context.fillRect(snake[i].x,snake[i].y, widthBox, heightBox)
   }
 }
 
 let food = {
-  x: Math.floor(Math.random()*15+1) * box,
-  y: Math.floor(Math.random()*15+1) * box
+  x: Math.floor(Math.random()*15+1) * widthBox,
+  y: Math.floor(Math.random()*15+1) * heightBox
 }
 function drawFood() {
   context.fillStyle = "#B31D00"
-  context.fillRect(food.x, food.y, box, box)
+  context.fillRect(food.x, food.y, widthBox, heightBox)
 }
 
 let direction = "right"
 function startGame() {
 
-  if (snake[0].x > 15*box && direction == "right") {snake[0].x = 0}
-  if (snake[0].x < 0 && direction == "left") {snake[0].x = 15*box}
-  if (snake[0].y > 15*box && direction == "down") {snake[0].y = 0}
-  if (snake[0].y < 0 && direction == "up") {snake[0].y = 15*box}
+  if (snake[0].x > 15*widthBox && direction == "right") {snake[0].x = 0}
+  if (snake[0].x < 0 && direction == "left") {snake[0].x = 15*widthBox}
+  if (snake[0].y > 15*heightBox && direction == "down") {snake[0].y = 0}
+  if (snake[0].y < 0 && direction == "up") {snake[0].y = 15*heightBox}
   
   for (i=1; i<snake.length; i++) {
     if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
@@ -71,14 +73,14 @@ function startGame() {
   let snakeX = snake[0].x
   let snakeY = snake[0].y
 
-  if (direction == 'right') {snakeX += box}
-  if (direction == 'left') {snakeX -= box}
-  if (direction == 'up') {snakeY -= box}
-  if (direction == 'down') {snakeY += box}
+  if (direction == 'right') {snakeX += widthBox}
+  if (direction == 'left') {snakeX -= widthBox}
+  if (direction == 'up') {snakeY -= heightBox}
+  if (direction == 'down') {snakeY += heightBox}
   
   if (snakeX === food.x && snakeY === food.y) {
-    food.x = Math.floor(Math.random()*15+1) * box
-    food.y = Math.floor(Math.random()*15+1) * box
+    food.x = Math.floor(Math.random()*15+1) * widthBox
+    food.y = Math.floor(Math.random()*15+1) * heightBox
     score += sccoreLevel
     updateScore()
   } else {
@@ -99,8 +101,8 @@ function resetGame() {
   updateScore()
   
   direction = "right"
-  food.x = Math.floor(Math.random()*15+1) * box
-  food.y = Math.floor(Math.random()*15+1) * box
+  food.x = Math.floor(Math.random()*15+1) * widthBox
+  food.y = Math.floor(Math.random()*15+1) * heightBox
 
 
   if (snake.length > 1) {
@@ -109,8 +111,8 @@ function resetGame() {
       snake.pop()
     }
   }
-  snake[0].x = 8*box
-  snake[0].y = 8*box
+  snake[0].x = 8*widthBox
+  snake[0].y = 8*heightBox
 
   game = setInterval(startGame, timelevel)
 }
@@ -141,7 +143,7 @@ function handleChangeLevel(level) {
 
 document.addEventListener('keydown', updateDirection)
 function updateDirection(event) {
-  if (snake[0].x<=15*box && snake[0].x>=0 && snake[0].y<=15*box && snake[0].y>=0) {
+  if (snake[0].x<=15*widthBox && snake[0].x>=0 && snake[0].y<=15*heightBox && snake[0].y>=0) {
     if(event.keyCode == 37 && direction != "right") { direction = "left"}
     if(event.keyCode == 38 && direction != "down") { direction = "up"}
     if(event.keyCode == 39 && direction != "left") { direction = "right"}
@@ -159,6 +161,19 @@ document.addEventListener("keydown", function (e) {
   }
 }, false);
 
+// insert controls for mobile devices
+function mobileOptions() {
+  let mobile = (screen.width < 600) ? true : false
+
+  if (mobile) {
+    window.document.querySelector('.joystick').classList.add('mobile')
+  } else {
+    window.document.querySelector('.joystick').classList.remove('mobile')
+  }
+
+}
+
+
 let joystick = false
 function insertHandleController(){
   joystick = !joystick
@@ -172,11 +187,17 @@ function insertHandleController(){
 
 }
 
-function changeDirection(way) {
-  if (snake[0].x<=15*box && snake[0].x>=0 && snake[0].y<=15*box && snake[0].y>=0) {
+function changeDirection(way, el) {
+  if (snake[0].x<=15*widthBox && snake[0].x>=0 && snake[0].y<=15*heightBox && snake[0].y>=0) {
     if(way == 'up' && direction != "down") { direction = "up"}
     if(way == 'left' && direction != "right") { direction = "left"}
     if(way == 'right' && direction != "left") { direction = "right"}
     if(way == 'down' && direction != "up") { direction = "down"}
   }
+  /*
+  this.element = el;
+  this.element.addEventListener('touchstart', this, false);
+  */
 }
+
+mobileOptions()

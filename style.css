@@ -77,9 +77,23 @@
 }
 
 .joystick {
-  padding: 40px 0 0;
+  display: none;
+  padding: 0 0 30px;
 }
 
+.mobile {
+  display: block;
+}
+
+.joystick button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.joystick button img {
+  padding-right: 10px;
+}
 
 .arrows-container {
   display: none;
@@ -135,6 +149,9 @@
   cursor: pointer;
 }
 
+.up {
+  padding-bottom: 8px;
+}
 .up::after {
   content: '';
   border-left: 20px solid transparent;
@@ -142,6 +159,9 @@
   border-bottom: 40px solid #000;
 }
 
+.down {
+  padding-top: 8px;
+}
 .down::after {
   content: '';
   border-top: 40px solid #000;
@@ -149,6 +169,9 @@
   border-right: 20px solid transparent;
 }
 
+.left {
+  padding-right: 8px;
+}
 .left::after {
   content: '';
   border-top: 20px solid transparent;
@@ -156,9 +179,44 @@
   border-bottom: 20px solid transparent;
 }
 
+.right {
+  padding-left: 8px;
+}
 .right::after {
   content: '';
   border-top: 20px solid transparent;
   border-left: 40px solid #000;
   border-bottom: 20px solid transparent;
+}
+
+@media only screen and (max-width: 600px) {
+  .game-render {
+    width: 100vw;
+  }
+  
+  .canvas {
+    text-align: center
+  }
+
+  canvas {
+    width: 90vw;
+    max-width: 512px;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+
+  .control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    margin: 0 auto;
+  }
+
+  .level {
+    padding: 20px 0;
+    margin: 0 auto;
+  }
 }

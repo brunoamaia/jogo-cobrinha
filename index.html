@@ -37,7 +37,7 @@
   <title>Jogo da cobrinha</title>
 </head>
 
-<body>
+<body onresize="mobileOptions()">
   <header class="header">
     <div class="content">
       <div class="logo">
@@ -89,7 +89,27 @@
           <span> 000 pts</span>
         </div>
 
-        <canvas id="snake" width="512" height="512" ></canvas>
+        <div class="canvas">
+          <canvas id="snake" width="512" height="512" ></canvas>
+        </div>
+
+        <div class="joystick">
+          <button type="button" onclick="insertHandleController()">
+            <img src="./src/power.svg" alt="simbolo de liga e desliga">
+            controle mobile
+          </button>
+          
+          <div class="arrows-container">
+            <div class="arrows">
+              <div class="up" onclick="changeDirection('up')"></div>
+              <div class="side">
+                <div class="left" onclick="changeDirection('left')"></div>
+                <div class="right" onclick="changeDirection('right')"></div>
+              </div>
+              <div class="down" onclick="changeDirection('down')"></div>
+            </div>
+          </div>
+        </div>
 
         <div class="control">
           <span>Dificuldade:</span>
@@ -107,23 +127,6 @@
           </div>
           
           <button type="button" class="reset" onclick="resetGame()">Reiniciar</button>
-        </div>
-
-        <div class="joystick">
-          <button type="button" onclick="insertHandleController()">
-            Ativar/Desativar controles para mobile
-          </button>
-          
-          <div class="arrows-container">
-            <div class="arrows">
-              <div class="up" onclick="changeDirection('up')"></div>
-              <div class="side">
-                <div class="left" onclick="changeDirection('left')"></div>
-                <div class="right" onclick="changeDirection('right')"></div>
-              </div>
-              <div class="down" onclick="changeDirection('down')"></div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
