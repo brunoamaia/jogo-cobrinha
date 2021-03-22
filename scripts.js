@@ -187,7 +187,7 @@ document.addEventListener("keydown", function (e) {
 
 // insert controls for mobile devices
 function mobileOptions() {
-  let mobile = (screen.width < 600) ? true : false
+  let mobile = (window.innerWidth < 600) ? true : false
 
   if (mobile) {
     window.document.querySelector('.joystick').classList.add('mobile')
