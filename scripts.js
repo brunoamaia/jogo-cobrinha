@@ -202,11 +202,11 @@ function endGame(reset=0) {
       ${congratulations}
       <div>
         <div>Pontuação: &nbsp;</div>
-        <div class="value"> ${score}pts </div>
+        <div class="value"> ${score} pts </div>
       </div>
       <div>
         <div>Seu recorde: &nbsp;</div>
-        <div class="value"> ${memmo.record}ts</div>
+        <div class="value"> ${memmo.record} pts</div>
       </div>
 
     `
