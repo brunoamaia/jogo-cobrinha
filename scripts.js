@@ -57,10 +57,10 @@ function createNewFood() {
 
   let colision = false
 
-  console.log(`Comrpimento = ${snake.length}`)
   for (let i = 0; i < snake.length; i++) {
     if( (x === snake[i].x && y === snake[i].y) 
     || (x === food.x && y === food.y)) {
+      console.log(`Comrpimento = ${snake.length}`)
       console.log('duplicado')
       colision = true
     }
