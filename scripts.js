@@ -158,3 +158,25 @@ document.addEventListener("keydown", function (e) {
     e.preventDefault();
   }
 }, false);
+
+let joystick = false
+function insertHandleController(){
+  joystick = !joystick
+  console.log(joystick)
+
+  if (joystick) {
+    window.document.querySelector('.arrows-container').classList.add('display')
+  } else {
+    window.document.querySelector('.arrows-container').classList.remove('display')
+  }
+
+}
+
+function changeDirection(way) {
+  if (snake[0].x<=15*box && snake[0].x>=0 && snake[0].y<=15*box && snake[0].y>=0) {
+    if(way == 'up' && direction != "down") { direction = "up"}
+    if(way == 'left' && direction != "right") { direction = "left"}
+    if(way == 'right' && direction != "left") { direction = "right"}
+    if(way == 'down' && direction != "up") { direction = "down"}
+  }
+}

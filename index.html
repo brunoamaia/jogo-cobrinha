@@ -108,6 +108,23 @@
           
           <button type="button" class="reset" onclick="resetGame()">Reiniciar</button>
         </div>
+
+        <div class="joystick">
+          <button type="button" onclick="insertHandleController()">
+            Ativar/Desativar controles para mobile
+          </button>
+          
+          <div class="arrows-container">
+            <div class="arrows">
+              <div class="up" onclick="changeDirection('up')"></div>
+              <div class="side">
+                <div class="left" onclick="changeDirection('left')"></div>
+                <div class="right" onclick="changeDirection('right')"></div>
+              </div>
+              <div class="down" onclick="changeDirection('down')"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -115,7 +132,8 @@
       <h1>Informações</h1>
       
       <p>
-        Jogo desenvolvido no curso de "HTML Web Developer" da <a href="https://digitalinnovation.one/sign-up?ref=67YTNH6X5C">Digital Inovation One (DIO)</a>.
+        Jogo desenvolvido no curso de "HTML Web Developer" da 
+        <a href="https://digitalinnovation.one/sign-up?ref=67YTNH6X5C">Digital Inovation One (DIO)</a>.
       </p>
       <p>
         O jogo foi desenvolvido utilizando canvas e JavaScript Vanilla. 

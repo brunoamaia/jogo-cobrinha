@@ -41,7 +41,8 @@
   font-size: 2rem;
 }
 
-.control button {
+.control button,
+.joystick button {
   background-color: #00804D;
   padding: 10px;
   margin: auto;
@@ -73,4 +74,91 @@
 .level .activated {
   background-color: #8A7708;
   border: 1px solid #D6BA18;
+}
+
+.joystick {
+  padding: 40px 0 0;
+}
+
+
+.arrows-container {
+  display: none;
+}
+
+.display {
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  padding: 0;
+  margin-bottom: 50px;
+}
+
+.arrows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  height:220px;
+  width:200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.side {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  justify-content: space-between;
+  padding: 0;
+}
+
+
+.up,
+.left,
+.right,
+.down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 80px;
+  width: 80px;
+  padding: 0;
+  margin: 0;
+  border-radius: 30%;
+
+  cursor: pointer;
+}
+
+.up::after {
+  content: '';
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 40px solid #000;
+}
+
+.down::after {
+  content: '';
+  border-top: 40px solid #000;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+.left::after {
+  content: '';
+  border-top: 20px solid transparent;
+  border-right: 40px solid #000;
+  border-bottom: 20px solid transparent;
+}
+
+.right::after {
+  content: '';
+  border-top: 20px solid transparent;
+  border-left: 40px solid #000;
+  border-bottom: 20px solid transparent;
 }
